@@ -12,6 +12,7 @@ import { createNewIndexAndPattern } from './create_new_index_pattern';
 import type { RenderWizardArguments } from '../layer_wizard_registry';
 import { GeoJsonVectorLayer } from '../../vector_layer';
 import { ESSearchSource } from '../../../sources/es_search_source';
+import { SCALING_TYPES } from '../../../../../common/constants';
 import { ADD_LAYER_STEP_ID } from '../../../../connected_components/add_layer_panel/view';
 import { getFileUpload, getIndexNameFormComponent } from '../../../../kibana_services';
 
@@ -127,6 +128,7 @@ export class NewVectorLayerEditor extends Component<RenderWizardArguments, State
       geoField: 'coordinates',
       filterByMapBounds: false,
       applyGlobalQuery: false,
+      scalingType: SCALING_TYPES.LIMIT,
     });
     const layerDescriptor = GeoJsonVectorLayer.createDescriptor(
       { sourceDescriptor },
